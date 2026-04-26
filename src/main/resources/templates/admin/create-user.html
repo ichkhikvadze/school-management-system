@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+    <h2>Create User</h2>
+
+    <form th:action="@{/admin/users}" method="post" th:object="${user}">
+
+        <input type="text" th:field="*{username}" placeholder="Username"/>
+        <input type="password" th:field="*{password}" placeholder="Password"/>
+        <input type="email" th:field="*{email}" placeholder="Email"/>
+        <input type="text" th:field="*{firstName}" placeholder="First Name"/>
+        <input type="text" th:field="*{lastName}" placeholder="Last Name"/>
+
+        <select th:field="*{role}">
+            <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
+        </select>
+
+        <button type="submit">Create</button>
+    </form>
+
+    </body>
+
+</html>
