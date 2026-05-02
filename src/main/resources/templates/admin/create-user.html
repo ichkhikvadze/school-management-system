@@ -9,19 +9,50 @@
 
     <form th:action="@{/admin/users}" method="post" th:object="${user}">
 
-        <input type="text" th:field="*{username}" placeholder="Username"/>
-        <input type="password" th:field="*{password}" placeholder="Password"/>
-        <input type="email" th:field="*{email}" placeholder="Email"/>
-        <input type="text" th:field="*{firstName}" placeholder="First Name"/>
-        <input type="text" th:field="*{lastName}" placeholder="Last Name"/>
+        <input type="text" th:field="*{username}" placeholder="Username"/><br>
+        <input type="password" th:field="*{password}" placeholder="Password"/><br>
+        <input type="email" th:field="*{email}" placeholder="Email"/><br>
+        <input type="text" th:field="*{firstName}" placeholder="First Name"/><br>
+        <input type="text" th:field="*{lastName}" placeholder="Last Name"/><br>
 
-        <select th:field="*{role}">
+        <select th:field="*{role}" id="roleSelect" onchange="toggleFields()">
+            <option value="">Select Role</option>
             <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
         </select>
 
-        <button type="submit">Create</button>
+        <!-- Student Fields -->
+        <div id="studentFields" style="display:none;">
+            <h3>Student Info</h3>
+            <input type="text" th:field="*{enrollmentNumber}" placeholder="Enrollment Number"/><br>
+            <input type="date" th:field="*{birthDate}"/><br>
+            <input type="text" th:field="*{address}" placeholder="Address"/><br>
+            <input type="text" th:field="*{parentName}" placeholder="Parent Name"/><br>
+            <input type="text" th:field="*{parentContact}" placeholder="Parent Contact"/><br>
+            <input type="date" th:field="*{admissionDate}"/><br>
+        </div>
+
+        <!-- Teacher Fields -->
+        <div id="teacherFields" style="display:none;">
+            <h3>Teacher Info</h3>
+            <input type="date" th:field="*{hireDate}"/><br>
+            <input type="number" step="0.01" th:field="*{salary}" placeholder="Salary"/><br>
+            <input type="text" th:field="*{qualification}" placeholder="Qualification"/><br>
+        </div>
+
+        <button type="submit">Create User</button>
     </form>
 
+    <script>
+        function toggleFields() {
+            const role = document.getElementById("roleSelect").value;
+            document.getElementById("studentFields").style.display =
+                role === "STUDENT" ? "block" : "none";
+            document.getElementById("teacherFields").style.display =
+                role === "TEACHER" ? "block" : "none";
+        }
+    </script>
+
+    <a href="/dashboard">Dashboard</a>
     </body>
 
 </html>

@@ -38,7 +38,7 @@ public class UserService {
     public void createUser(UserCreateRequest request) {
 
         Role role = roleRepository.findByName(request.getRole())
-                .orElseThrow();
+                .orElseThrow(() -> new RuntimeException("Role not found"));
 
         User user = new User();
         user.setUsername(request.getUsername());
@@ -47,20 +47,30 @@ public class UserService {
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setRole(role);
+        user.setActive(true);
 
         userRepository.save(user);
 
-        // AUTO CREATE ROLE-SPECIFIC TABLES
         if (request.getRole() == RoleName.STUDENT) {
             Student student = new Student();
             student.setUser(user);
-            student.setEnrollmentNumber("STU-" + user.getId());
+            student.setEnrollmentNumber(request.getEnrollmentNumber());
+            student.setBirthDate(request.getBirthDate());
+            student.setAddress(request.getAddress());
+            student.setParentName(request.getParentName());
+            student.setParentContact(request.getParentContact());
+            student.setAdmissionDate(request.getAdmissionDate());
+
             studentRepository.save(student);
         }
 
         if (request.getRole() == RoleName.TEACHER) {
             Teacher teacher = new Teacher();
             teacher.setUser(user);
+            teacher.setHireDate(request.getHireDate());
+            teacher.setSalary(request.getSalary());
+            teacher.setQualification(request.getQualification());
+
             teacherRepository.save(teacher);
         }
     }
