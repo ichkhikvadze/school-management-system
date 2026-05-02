@@ -2,12 +2,12 @@ package schoolmanagementsystem.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import schoolmanagementsystem.entity.Teacher;
+import schoolmanagementsystem.entity.Subject;
 
 import java.util.Optional;
 
 @Repository
-public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+public interface SubjectRepository extends JpaRepository<Subject, Long> {
 
-    Optional<Teacher> findByUserUsername(String username);
+    Optional<Subject> findByName(String name);
 }

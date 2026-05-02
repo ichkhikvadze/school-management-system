@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Group Management</title>
+    </head>
+    <body>
+
+    <h2>Group Management</h2>
+
+    <h3>Create Group</h3>
+    <form th:action="@{/admin/groups/create}" method="post">
+        <input type="text" name="name" placeholder="Group Name"/>
+        <input type="number" name="gradeLevel" placeholder="Grade Level"/>
+        <input type="text" name="academicYear" placeholder="Academic Year"/>
+        <button type="submit">Create</button>
+    </form>
+
+    <hr>
+
+    <h3>Existing Groups</h3>
+    <div th:each="group : ${groups}">
+        <p>
+            <strong th:text="${group.name}"></strong>
+            (Grade <span th:text="${group.gradeLevel}"></span>)
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Create Timetable</h3>
+    <form th:action="@{/admin/groups/timetable/create}" method="post">
+        <input type="text" name="groupName" placeholder="Group Name"/>
+        <input type="text" name="subjectName" placeholder="Subject Name"/>
+        <input type="text" name="teacherUsername" placeholder="Teacher Username"/>
+        <input type="text" name="dayOfWeek" placeholder="MONDAY"/>
+        <input type="time" name="startTime"/>
+        <input type="time" name="endTime"/>
+        <input type="text" name="roomNumber" placeholder="Room"/>
+        <button type="submit">Save Timetable</button>
+    </form>
+
+    <hr>
+
+    <h3>Create Exam</h3>
+    <form th:action="@{/admin/groups/exam/create}" method="post">
+        <input type="text" name="groupName" placeholder="Group Name"/>
+        <input type="text" name="subjectName" placeholder="Subject Name"/>
+        <input type="date" name="examDate"/>
+        <input type="number" name="maxScore" placeholder="Max Score"/>
+        <button type="submit">Create Exam</button>
+    </form>
+
+<!--    <hr>-->
+
+<!--    <h3>Create Class</h3>-->
+
+<!--    <form th:action="@{/admin/groups/class/create}" method="post">-->
+
+<!--        <input type="number" name="groupId" placeholder="Group ID" required><br>-->
+<!--        <input type="number" name="subjectId" placeholder="Subject ID" required><br>-->
+<!--        <input type="number" name="teacherId" placeholder="Teacher ID" required><br>-->
+
+<!--        <label>Date:</label>-->
+<!--        <input type="date" name="classDate" required><br>-->
+
+<!--        <label>Start Time:</label>-->
+<!--        <input type="time" name="startTime" required><br>-->
+
+<!--        <label>End Time:</label>-->
+<!--        <input type="time" name="endTime" required><br>-->
+
+<!--        <input type="text" name="roomNumber" placeholder="Room Number"><br>-->
+<!--        <input type="text" name="topic" placeholder="Topic"><br>-->
+
+<!--        <textarea name="description" placeholder="Description"></textarea><br>-->
+
+<!--        <button type="submit">Create Class</button>-->
+<!--    </form>-->
+
+    </body>
+</html>

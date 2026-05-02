@@ -34,8 +34,8 @@ INSERT INTO group_students(group_id,student_id) VALUES (1,1);
 INSERT INTO teacher_subjects(teacher_id,subject_id) VALUES (1,1);
 
 -- CLASS
-INSERT INTO classes(teacher_id,subject_id,group_id,class_date,topic,room_number)
-VALUES (1,1,1,'2026-04-20','Algebra Basics','101');
+INSERT INTO classes(teacher_id,subject_id,group_id,class_date,start_time,end_time,topic,room_number)
+VALUES (1,1,1,'2026-04-20', '14:00:00','15:00:00','Algebra Basics','101');
 
 -- TIMETABLE
 INSERT INTO timetables(group_id,subject_id,teacher_id,day_of_week,start_time,end_time,room_number)

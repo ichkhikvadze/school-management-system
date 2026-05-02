@@ -1,60 +1,41 @@
-package schoolmanagementsystem.entity;
-
-import jakarta.persistence.*;
+package schoolmanagementsystem.request;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity
-@Table(name = "classes")
-public class SchoolClass {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne
-    private Teacher teacher;
-    @ManyToOne
-    private Subject subject;
-    @ManyToOne
-    private StudentGroup group;
+public class ClassCreateRequest {
+    private Long groupId;
+    private Long subjectId;
+    private Long teacherId;
     private LocalDate classDate;
     private LocalTime startTime;
     private LocalTime endTime;
-    private String topic;
     private String roomNumber;
+    private String topic;
     private String description;
 
-    public Long getId() {
-        return id;
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public Long getSubjectId() {
+        return subjectId;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public Long getTeacherId() {
+        return teacherId;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
-
-    public StudentGroup getGroup() {
-        return group;
-    }
-
-    public void setGroup(StudentGroup group) {
-        this.group = group;
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public LocalDate getClassDate() {
@@ -81,20 +62,20 @@ public class SchoolClass {
         this.endTime = endTime;
     }
 
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
     public String getRoomNumber() {
         return roomNumber;
     }
 
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public String getDescription() {

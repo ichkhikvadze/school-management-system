@@ -117,8 +117,11 @@ CREATE TABLE classes (
                          subject_id BIGINT NOT NULL,
                          group_id BIGINT NOT NULL,
                          class_date DATE NOT NULL,
+                         start_time TIME NOT NULL,
+                         end_time TIME NOT NULL,
                          topic VARCHAR(255),
                          room_number VARCHAR(20),
+                         description VARCHAR(255),
                          FOREIGN KEY (teacher_id) REFERENCES teachers(id),
                          FOREIGN KEY (subject_id) REFERENCES subjects(id),
                          FOREIGN KEY (group_id) REFERENCES student_groups(id)
