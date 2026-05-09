@@ -5,10 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import schoolmanagementsystem.entity.*;
 import schoolmanagementsystem.repository.*;
-import schoolmanagementsystem.request.ClassCreateRequest;
-import schoolmanagementsystem.request.ExamCreateRequest;
-import schoolmanagementsystem.request.GroupCreateRequest;
-import schoolmanagementsystem.request.TimetableRequest;
+import schoolmanagementsystem.request.*;
 
 @Service
 public class GroupService {
@@ -113,5 +110,28 @@ public class GroupService {
         schoolClass.setDescription(request.getDescription());
 
         schoolClassRepository.save(schoolClass);
+    }
+
+    @Transactional
+    public void addStudentToGroup(AddStudentToGroupRequest request) {
+
+        Student student = studentRepository.findByUserUsername(request.getStudentUsername())
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        StudentGroup group = studentGroupRepository.findByName(request.getGroupName())
+                .orElseThrow(() -> new RuntimeException("Group not found"));
+
+        // avoid duplicates
+        boolean alreadyExists = group.getStudents()
+                .stream()
+                .anyMatch(s -> s.getId().equals(student.getId()));
+
+        if (alreadyExists) {
+            throw new RuntimeException("Student already in group");
+        }
+
+        group.getStudents().add(student);
+
+        studentGroupRepository.save(group);
     }
 }

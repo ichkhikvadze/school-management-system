@@ -8,6 +8,14 @@
 
     <h2>Group Management</h2>
 
+    <div th:if="${success}" style="padding:10px; background:#d4edda; color:#155724; margin-bottom:15px;">
+        <span th:text="${success}"></span>
+    </div>
+
+    <div th:if="${error}" style="padding:10px; background:#f8d7da; color:#721c24; margin-bottom:15px;">
+        <span th:text="${error}"></span>
+    </div>
+
     <h3>Create Group</h3>
     <form th:action="@{/admin/groups/create}" method="post">
         <input type="text" name="name" placeholder="Group Name"/>
@@ -49,6 +57,15 @@
         <input type="date" name="examDate"/>
         <input type="number" name="maxScore" placeholder="Max Score"/>
         <button type="submit">Create Exam</button>
+    </form>
+
+    <hr>
+
+    <h3>Add Student To Group</h3>
+    <form th:action="@{/admin/groups/students/add}" method="post">
+        <input type="text" name="studentUsername" placeholder="Student Username" required><br>
+        <input type="text" name="groupName" placeholder="Group Name" required><br>
+        <button type="submit">Add Student</button>
     </form>
 
 <!--    <hr>-->

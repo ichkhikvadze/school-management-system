@@ -5,10 +5,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import schoolmanagementsystem.request.ClassCreateRequest;
-import schoolmanagementsystem.request.ExamCreateRequest;
-import schoolmanagementsystem.request.GroupCreateRequest;
-import schoolmanagementsystem.request.TimetableRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import schoolmanagementsystem.request.*;
 import schoolmanagementsystem.service.GroupService;
 import schoolmanagementsystem.service.StudentGroupService;
 
@@ -65,6 +63,17 @@ public class AdminGroupController {
     @PostMapping("/class/create")
     public String createClass(@ModelAttribute ClassCreateRequest request) {
         groupService.createClass(request);
+        return "redirect:/admin/groups";
+    }
+
+    @PostMapping("/students/add")
+    public String addStudentToGroup(@ModelAttribute AddStudentToGroupRequest request, RedirectAttributes redirectAttributes) {
+        try {
+            groupService.addStudentToGroup(request);
+            redirectAttributes.addFlashAttribute("success", "Student added successfully");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
         return "redirect:/admin/groups";
     }
 }
