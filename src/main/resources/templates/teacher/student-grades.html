@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Grades</title>
+    </head>
+    <body>
+        <h2>Student Grades</h2>
+
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Grade Type</th>
+                    <th>Score</th>
+                    <th>Max Score</th>
+                    <th>Teacher</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="grade : ${grades}">
+                    <td th:text="${grade.subjectName}"></td>
+                    <td th:text="${grade.gradeType}"></td>
+                    <td th:text="${grade.score}"></td>
+                    <td th:text="${grade.maxScore}"></td>
+                    <td th:text="${grade.teacherName}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+        <a th:href="@{/teacher/groups}">Back To Groups</a>
+    </body>
+</html>

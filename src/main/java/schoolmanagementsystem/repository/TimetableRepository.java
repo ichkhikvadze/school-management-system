@@ -54,4 +54,18 @@ public interface TimetableRepository extends JpaRepository<TimeTable, Long> {
         ORDER BY t.group.name
     """)
     List<StudentGroup> findGroupsByTeacherUsername(String username);
+
+    @Query("""
+        SELECT COUNT(t) > 0
+        FROM TimeTable t
+        JOIN t.group g
+        JOIN g.students s
+        JOIN t.teacher teacher
+        JOIN teacher.user u
+        WHERE
+            u.username = :username
+            AND
+            s.id = :studentId
+    """)
+    boolean teacherHasAccessToStudent(String username, Long studentId);
 }

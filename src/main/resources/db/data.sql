@@ -42,7 +42,7 @@ INSERT INTO timetables(group_id,subject_id,teacher_id,day_of_week,start_time,end
 VALUES (1,1,1,'MONDAY','09:00:00','10:00:00','101');
 
 -- ASSIGNMENT
-INSERT INTO assignments(class_id,title,description,due_date,max_score)
+INSERT INTO assignments(subject_id,title,description,due_date,max_score)
 VALUES (1,'Homework 1','Solve algebra exercises','2026-04-25',100);
 
 -- EXAM

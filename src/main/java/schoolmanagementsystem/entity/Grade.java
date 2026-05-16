@@ -19,6 +19,7 @@ public class Grade {
     @ManyToOne
     private Exam exam;
     @ManyToOne
+    @JoinColumn(name = "class_id")
     private SchoolClass schoolClass;
     private BigDecimal gradeValue;
     private String remarks;

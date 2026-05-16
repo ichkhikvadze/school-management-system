@@ -12,7 +12,7 @@ public class Assignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    private SchoolClass schoolClass;
+    private Subject subject;
     private String title;
     private String description;
     private LocalDate dueDate;
@@ -26,12 +26,12 @@ public class Assignment {
         this.id = id;
     }
 
-    public SchoolClass getSchoolClass() {
-        return schoolClass;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setSchoolClass(SchoolClass schoolClass) {
-        this.schoolClass = schoolClass;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public String getTitle() {

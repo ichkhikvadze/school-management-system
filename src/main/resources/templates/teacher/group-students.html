@@ -15,7 +15,11 @@
             </thead>
             <tbody>
                 <tr th:each="student : ${students}">
-                    <td th:text="${student.username}"></td>
+                    <td>
+                        <a th:href="@{/teacher/students/{id}/grades(id=${student.id})}"
+                           th:text="${student.username}">
+                        </a>
+                    </td>
                     <td th:text="${student.firstName}"></td>
                     <td th:text="${student.lastName}"></td>
                 </tr>

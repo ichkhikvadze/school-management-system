@@ -28,6 +28,7 @@ public class StudentMapper {
 
     public static GroupStudentDto toGroupStudentDto(Student student) {
         GroupStudentDto groupStudentDto = new GroupStudentDto();
+        groupStudentDto.setId(student.getId());
         groupStudentDto.setUsername(student.getUser().getUsername());
         groupStudentDto.setFirstName(student.getUser().getFirstName());
         groupStudentDto.setLastName(student.getUser().getLastName());
