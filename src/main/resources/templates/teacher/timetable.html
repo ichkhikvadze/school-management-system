@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>My Timetable</title>
+    </head>
+    <body>
+        <h2>My Timetable</h2>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Subject</th>
+                    <th>Day</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entry : ${timetable}">
+                    <td th:text="${entry.groupName}"></td>
+                    <td th:text="${entry.subjectName}"></td>
+                    <td th:text="${entry.dayOfWeek}"></td>
+                    <td th:text="${entry.startTime}"></td>
+                    <td th:text="${entry.endTime}"></td>
+                    <td th:text="${entry.roomNumber}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/dashboard">Dashboard</a>
+    </body>
+</html>

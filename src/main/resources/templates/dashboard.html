@@ -20,6 +20,7 @@
 
         <div sec:authorize="hasRole('TEACHER')">
             <p>Teacher Panel</p>
+            <a th:href="@{/teacher/timetable}">My Timetable</a>
         </div>
 
         <div sec:authorize="hasRole('STUDENT')">
