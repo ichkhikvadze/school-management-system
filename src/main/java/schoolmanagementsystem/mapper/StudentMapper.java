@@ -1,5 +1,6 @@
 package schoolmanagementsystem.mapper;
 
+import schoolmanagementsystem.dto.GroupStudentDto;
 import schoolmanagementsystem.dto.StudentViewDto;
 import schoolmanagementsystem.entity.Student;
 import schoolmanagementsystem.entity.StudentGroup;
@@ -23,5 +24,13 @@ public class StudentMapper {
         studentViewDto.setParentContact(student.getParentContact());
 
         return studentViewDto;
+    }
+
+    public static GroupStudentDto toGroupStudentDto(Student student) {
+        GroupStudentDto groupStudentDto = new GroupStudentDto();
+        groupStudentDto.setUsername(student.getUser().getUsername());
+        groupStudentDto.setFirstName(student.getUser().getFirstName());
+        groupStudentDto.setLastName(student.getUser().getLastName());
+        return groupStudentDto;
     }
 }

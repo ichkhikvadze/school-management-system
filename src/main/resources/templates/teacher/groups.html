@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>My Groups</title>
+    </head>
+    <body>
+        <h2>Groups I Teach</h2>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Grade Level</th>
+                    <th>Academic Year</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="group : ${groups}">
+                    <td>
+                        <a th:href="@{/teacher/groups/{id}/students(id=${group.id})}"
+                           th:text="${group.groupName}">
+                        </a>
+                    </td>
+                    <td th:text="${group.gradeLevel}"></td>
+                    <td th:text="${group.academicYear}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/dashboard">Dashboard</a>
+    </body>
+</html>
