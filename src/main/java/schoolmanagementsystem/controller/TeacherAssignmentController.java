@@ -6,8 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import schoolmanagementsystem.dto.AssignmentViewDto;
 import schoolmanagementsystem.request.CreateAssignmentRequest;
 import schoolmanagementsystem.service.TeacherAssignmentService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/teacher/groups")
@@ -43,5 +46,13 @@ public class TeacherAssignmentController {
         return "redirect:/teacher/groups/"
                 + groupId
                 + "/assignments/create";
+    }
+
+    @GetMapping("/{groupId}/assignments")
+    public String assignmentsPage(@PathVariable Long groupId, Authentication authentication, Model model) {
+        List<AssignmentViewDto> assignments = teacherAssignmentService.getGroupAssignments(authentication.getName(), groupId);
+        model.addAttribute("assignments", assignments);
+        model.addAttribute("groupId", groupId);
+        return "teacher/assignments";
     }
 }

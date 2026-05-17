@@ -3,12 +3,16 @@ package schoolmanagementsystem.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import schoolmanagementsystem.dto.AssignmentViewDto;
 import schoolmanagementsystem.entity.Assignment;
 import schoolmanagementsystem.entity.StudentGroup;
 import schoolmanagementsystem.entity.Subject;
 import schoolmanagementsystem.entity.Teacher;
+import schoolmanagementsystem.mapper.AssignmentMapper;
 import schoolmanagementsystem.repository.*;
 import schoolmanagementsystem.request.CreateAssignmentRequest;
+
+import java.util.List;
 
 @Service
 public class TeacherAssignmentService {
@@ -58,5 +62,17 @@ public class TeacherAssignmentService {
         assignment.setGroup(group);
         assignment.setSubject(subject);
         assignmentRepository.save(assignment);
+    }
+
+    public List<AssignmentViewDto> getGroupAssignments(String username, Long groupId) {
+        boolean hasAccess = timetableRepository.teacherHasAccessToGroup(username, groupId);
+        if (!hasAccess) {
+            throw new RuntimeException("Access denied");
+        }
+        return assignmentRepository
+                .findGroupAssignments(groupId)
+                .stream()
+                .map(AssignmentMapper::toAssignmentViewDto)
+                .toList();
     }
 }
