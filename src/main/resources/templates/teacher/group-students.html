@@ -5,6 +5,12 @@
     </head>
     <body>
         <h2>Students In Group</h2>
+
+        <a th:href="@{/teacher/groups/{id}/assignments/create(id=${groupId})}">
+            <button type="button">Create Assignment</button>
+        </a>
+
+        <br><br>
         <table border="1" cellpadding="10">
             <thead>
                 <tr>

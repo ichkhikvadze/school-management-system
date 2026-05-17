@@ -149,11 +149,15 @@ CREATE TABLE timetables (
 -- =========================
 CREATE TABLE assignments (
                              id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                             teacher_id BIGINT NOT NULL,
+                             group_id BIGINT NOT NULL,
                              subject_id BIGINT NOT NULL,
                              title VARCHAR(150) NOT NULL,
                              description VARCHAR(500),
                              due_date DATE,
                              max_score INT DEFAULT 100,
+                             FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+                             FOREIGN KEY (group_id) REFERENCES student_groups(id),
                              FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
 

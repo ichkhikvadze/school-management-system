@@ -37,6 +37,7 @@ public class TeacherGroupController {
         String username = authentication.getName();
         List<GroupStudentDto> students = teacherGroupService.getGroupStudents(username, groupId);
         model.addAttribute("students", students);
+        model.addAttribute("groupId", groupId);
         return "teacher/group-students";
     }
 }

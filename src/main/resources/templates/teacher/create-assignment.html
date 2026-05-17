@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Create Assignment</title>
+    </head>
+    <body>
+        <h2>Create Assignment</h2>
+        <div th:if="${success}"
+             style="color:green;">
+            <span th:text="${success}"></span>
+        </div>
+        <div th:if="${error}"
+             style="color:red;">
+            <span th:text="${error}"></span>
+        </div>
+        <form th:action="@{/teacher/groups/{id}/assignments/create(id=${groupId})}"
+              method="post"
+              th:object="${assignment}">
+
+            <input type="text" th:field="*{subjectName}" placeholder="Subject Name">
+            <br><br>
+
+            <input type="text" th:field="*{title}" placeholder="Assignment Title">
+            <br><br>
+
+            <textarea th:field="*{description}" placeholder="Description">
+            </textarea>
+            <br><br>
+
+            <input type="date" th:field="*{dueDate}">
+            <br><br>
+
+            <input type="number" th:field="*{maxScore}" placeholder="Max Score"/>
+            <br><br>
+
+            <button type="submit">Create Assignment</button>
+        </form>
+
+        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">Back To Group</a>
+    </body>
+</html>
