@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add Assignment Grade</title>
+    </head>
+    <body>
+
+        <h2>Add Assignment Grade</h2>
+
+        <div th:if="${success}" style="color:green;">
+            <span th:text="${success}"></span>
+        </div>
+
+        <div th:if="${error}" style="color:red;">
+            <span th:text="${error}"></span>
+        </div>
+
+        <form th:action="@{/teacher/assignments/{id}/grades/add(id=${assignmentId})}" method="post" th:object="${request}">
+
+            <!-- STUDENT DROPDOWN -->
+
+            <label>Select Student</label>
+
+            <select th:field="*{studentId}">
+                <option value="">-- Select Student --</option>
+                <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.displayName}"></option>
+            </select>
+
+            <br><br>
+
+            <!-- SCORE -->
+
+            <input type="number"
+                   step="0.01"
+                   min="0"
+                   max="100"
+                   th:field="*{score}"
+                   placeholder="Score">
+
+            <br><br>
+
+            <button type="submit">Add Grade</button>
+        </form>
+    </body>
+</html>

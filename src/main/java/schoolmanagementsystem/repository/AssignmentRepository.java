@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import schoolmanagementsystem.entity.Assignment;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
@@ -25,4 +26,25 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
     List<Assignment> findGroupAssignments(
             Long groupId
     );
+
+    @EntityGraph(attributePaths = {
+            "group",
+            "group.students",
+            "group.students.user",
+            "subject",
+            "teacher"
+    })
+    Optional<Assignment> findDetailedById(Long id);
+
+    @Query("""
+        SELECT COUNT(a) > 0
+        FROM Assignment a
+        JOIN a.teacher t
+        JOIN t.user u
+        WHERE
+            a.id = :assignmentId
+            AND
+            u.username = :username
+    """)
+    boolean teacherOwnsAssignment(Long assignmentId, String username);
 }

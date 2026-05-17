@@ -16,7 +16,9 @@
         </thead>
         <tbody>
             <tr th:each="assignment : ${assignments}">
-                <td th:text="${assignment.title}"></td>
+                <td>
+                    <a th:href="@{/teacher/assignments/{id}/grades/add(id=${assignment.id})}" th:text="${assignment.title}"></a>
+                </td>
                 <td th:text="${assignment.description}"></td>
                 <td th:text="${assignment.subjectName}"></td>
                 <td th:text="${assignment.dueDate}"></td>

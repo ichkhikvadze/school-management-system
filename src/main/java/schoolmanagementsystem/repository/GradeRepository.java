@@ -21,4 +21,6 @@ public interface GradeRepository extends JpaRepository<Grade, Long> {
         WHERE g.student.id = :studentId
     """)
     List<Grade> findStudentGrades(Long studentId);
+
+    boolean existsByAssignmentIdAndStudentId(Long assignmentId, Long studentId);
 }
