@@ -46,8 +46,8 @@ INSERT INTO assignments(teacher_id,group_id,subject_id,title,description,due_dat
 VALUES (1,1,1,'Homework 1','Solve algebra exercises','2026-04-25',100);
 
 -- EXAM
-INSERT INTO exams(subject_id,group_id,exam_date,max_score)
-VALUES (1,1,'2026-05-10',100);
+INSERT INTO exams(subject_id,group_id,title,exam_date,max_score)
+VALUES (1,1,'Shualeduri 1','2026-05-10',100);
 
 -- GRADE
 INSERT INTO grades(student_id,assignment_id,grade_value,remarks)

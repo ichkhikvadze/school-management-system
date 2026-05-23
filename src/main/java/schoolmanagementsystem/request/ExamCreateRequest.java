@@ -7,6 +7,7 @@ public class ExamCreateRequest {
     private String groupName;
     private String subjectName;
     private LocalDate examDate;
+    private String title;
     private Integer maxScore;
 
     public String getGroupName() {
@@ -31,6 +32,14 @@ public class ExamCreateRequest {
 
     public void setExamDate(LocalDate examDate) {
         this.examDate = examDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getMaxScore() {

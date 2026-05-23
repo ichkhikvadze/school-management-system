@@ -82,6 +82,7 @@ public class GroupService {
         exam.setGroup(studentGroupRepository.findByName(request.getGroupName()).orElseThrow());
         exam.setSubject(subjectRepository.findByName(request.getSubjectName()).orElseThrow());
         exam.setExamDate(request.getExamDate());
+        exam.setTitle(request.getTitle());
         exam.setMaxScore(request.getMaxScore());
 
         examRepository.save(exam);

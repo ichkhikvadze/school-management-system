@@ -168,6 +168,7 @@ CREATE TABLE exams (
                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
                        subject_id BIGINT NOT NULL,
                        group_id BIGINT NOT NULL,
+                       title VARCHAR(100) NOT NULL,
                        exam_date DATE NOT NULL,
                        max_score INT DEFAULT 100,
                        FOREIGN KEY (subject_id) REFERENCES subjects(id),

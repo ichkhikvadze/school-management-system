@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Exams</title>
+    </head>
+    <body>
+        <h2>Exams</h2>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Subject</th>
+                    <th>Exam Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="exam : ${exams}">
+                    <td th:text="${exam.title}"></td>
+                    <td th:text="${exam.subjectName}"></td>
+                    <td th:text="${exam.examDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">Back To Group</a>
+    </body>
+</html>
