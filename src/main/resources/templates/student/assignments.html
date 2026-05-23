@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>My Assignments</title>
+    </head>
+    <body>
+    <h2>My Assignments</h2>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Subject</th>
+                    <th>Due Date</th>
+                    <th>Grade Status</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="assignment : ${assignments}">
+                    <td th:text="${assignment.title}"></td>
+                    <td th:text="${assignment.description}"></td>
+                    <td th:text="${assignment.subjectName}"></td>
+                    <td th:text="${assignment.dueDate}"></td>
+
+                    <!-- STATUS -->
+
+                    <td>
+                        <span th:if="${assignment.graded}" style="color:green;">Graded</span>
+                        <span th:unless="${assignment.graded}" style="color:orange;">Pending</span>
+                    </td>
+
+                    <!-- GRADE -->
+
+                    <td>
+                        <span th:if="${assignment.graded}" th:text="${assignment.grade}"></span>
+                        <span th:unless="${assignment.graded}">-</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

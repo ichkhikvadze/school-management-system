@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import schoolmanagementsystem.entity.Grade;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface GradeRepository extends JpaRepository<Grade, Long> {
@@ -25,4 +26,6 @@ public interface GradeRepository extends JpaRepository<Grade, Long> {
     boolean existsByAssignmentIdAndStudentId(Long assignmentId, Long studentId);
 
     boolean existsByExamIdAndStudentId(Long examId, Long studentId);
+
+    Optional<Grade> findByAssignmentIdAndStudentId(Long assignmentId, Long studentId);
 }

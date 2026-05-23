@@ -26,6 +26,7 @@
 
         <div sec:authorize="hasRole('STUDENT')">
             <p>Student Panel</p>
+            <a th:href="@{/student/assignments}">My Assignments</a>
         </div>
 
         <form th:action="@{/logout}" method="post">

@@ -47,4 +47,18 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
             u.username = :username
     """)
     boolean teacherOwnsAssignment(Long assignmentId, String username);
+
+    @EntityGraph(attributePaths = {
+            "group",
+            "subject"
+    })
+    @Query("""
+        SELECT a
+        FROM Assignment a
+        JOIN a.group g
+        JOIN g.students s
+        WHERE s.user.username = :username
+        ORDER BY a.id DESC
+    """)
+    List<Assignment> findAssignmentsForStudent(String username);
 }
