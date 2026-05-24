@@ -68,4 +68,21 @@ public interface TimetableRepository extends JpaRepository<TimeTable, Long> {
             s.id = :studentId
     """)
     boolean teacherHasAccessToStudent(String username, Long studentId);
+
+    @EntityGraph(attributePaths = {
+            "subject",
+            "teacher",
+            "teacher.user",
+            "group"
+    })
+    @Query("""
+        SELECT t
+        FROM TimeTable t
+        JOIN t.group g
+        JOIN g.students s
+        WHERE s.user.username = :username
+        ORDER BY t.dayOfWeek ASC,
+            t.startTime ASC
+    """)
+    List<TimeTable> findStudentTimetable(String username);
 }
