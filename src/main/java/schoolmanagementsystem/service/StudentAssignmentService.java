@@ -36,11 +36,7 @@ public class StudentAssignmentService {
                 .findAssignmentsForStudent(username)
                 .stream()
                 .map(assignment -> {
-                    Optional<Grade> gradeOptional =
-                            gradeRepository
-                                    .findByAssignmentIdAndStudentId(
-                                            assignment.getId(),
-                                            student.getId());
+                    Optional<Grade> gradeOptional = gradeRepository.findByAssignmentIdAndStudentId(assignment.getId(), student.getId());
                     return AssignmentMapper.toStudentAssignmentDto(assignment, gradeOptional);
                 })
                 .toList();

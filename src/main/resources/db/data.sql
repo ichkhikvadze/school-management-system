@@ -14,8 +14,15 @@ INSERT INTO users(username,password,email,first_name,last_name,role_id)
 VALUES ('student1','stud123','student@school.com','Emma','Brown',3);
 
 -- SUBJECTS
-INSERT INTO subjects(name,description) VALUES ('Mathematics','Math subject');
-INSERT INTO subjects(name,description) VALUES ('Physics','Physics subject');
+INSERT INTO subjects(name,description) VALUES ('მათემატიკა','მათემატიკა');
+INSERT INTO subjects(name,description) VALUES ('ქართული ენა','ქართული ენა');
+INSERT INTO subjects(name,description) VALUES ('ინგლისური ენა','ინგლისური ენა');
+INSERT INTO subjects(name,description) VALUES ('რუსული ენა','რუსული ენა');
+INSERT INTO subjects(name,description) VALUES ('ისტორია','ისტორია');
+INSERT INTO subjects(name,description) VALUES ('გეოგრაფია','გეოგრაფია');
+INSERT INTO subjects(name,description) VALUES ('ფიზიკა','ფიზიკა');
+INSERT INTO subjects(name,description) VALUES ('ქიმია','ქიმია');
+INSERT INTO subjects(name,description) VALUES ('ბიოლოგია','ბიოლოგია');
 
 -- GROUPS
 INSERT INTO student_groups(name,grade_level,academic_year)

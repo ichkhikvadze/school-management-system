@@ -31,4 +31,18 @@ public interface ExamRepository extends JpaRepository<Exam, Long> {
             "subject"
     })
     Optional<Exam> findDetailedById(Long id);
+
+    @EntityGraph(attributePaths = {
+            "group",
+            "subject"
+    })
+    @Query("""
+        SELECT e
+        FROM Exam e
+        JOIN e.group g
+        JOIN g.students s
+        WHERE s.user.username = :username
+        ORDER BY e.examDate DESC
+    """)
+    List<Exam> findStudentExams(String username);
 }

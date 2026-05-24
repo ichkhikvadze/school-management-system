@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>My Exams</title>
+    </head>
+    <body>
+        <h2>My Exams</h2>
+
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Subject</th>
+                    <th>Exam Date</th>
+                    <th>Grade Status</th>
+                    <th>Grade</th>
+                    <th>Max Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="exam : ${exams}">
+                    <td th:text="${exam.title}"></td>
+                    <td th:text="${exam.subjectName}"></td>
+                    <td th:text="${exam.examDate}"></td>
+
+                    <!-- STATUS -->
+                    <td>
+                        <span th:if="${exam.graded}" style="color:green;">Graded</span>
+                        <span th:unless="${exam.graded}" style="color:orange;">Pending</span>
+                    </td>
+
+                    <!-- GRADE -->
+                    <td>
+                        <span th:if="${exam.graded}" th:text="${exam.grade}"></span>
+                        <span th:unless="${exam.graded}">-</span>
+                    </td>
+
+                    <td th:text="${exam.maxScore}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/dashboard">Dashboard</a>
+    </body>
+</html>
