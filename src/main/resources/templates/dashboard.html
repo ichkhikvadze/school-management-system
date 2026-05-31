@@ -31,6 +31,11 @@
             <a th:href="@{/student/exams}">My Exams</a>
         </div>
 
+        <div sec:authorize="hasRole('MONITORING')">
+            <p>Monitoring Panel</p>
+            <a th:href="@{/monitoring/dashboard}">Monitor Building</a>
+        </div>
+
         <form th:action="@{/logout}" method="post">
             <button type="submit">Logout</button>
         </form>

@@ -1,5 +1,5 @@
 package schoolmanagementsystem.entity;
 
 public enum RoleName {
-    ADMIN, TEACHER, STUDENT
+    ADMIN, TEACHER, STUDENT, MONITORING
 }

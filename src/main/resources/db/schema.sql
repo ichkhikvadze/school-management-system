@@ -13,6 +13,8 @@ DROP TABLE IF EXISTS student_groups;
 DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS sensor;
+DROP TABLE IF EXISTS sensor_reading;
 
 -- =========================
 -- ROLES
@@ -215,4 +217,31 @@ CREATE TABLE payments (
                           amount_paid DECIMAL(10,2) NOT NULL,
                           method VARCHAR(50),
                           FOREIGN KEY (fee_id) REFERENCES fees(id)
+);
+
+-- =========================
+-- SENSOR
+-- =========================
+CREATE TABLE sensor (
+                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100) NOT NULL,
+                        type VARCHAR(50) NOT NULL,
+                        location VARCHAR(255) NOT NULL,
+                        unit VARCHAR(20) NOT NULL,
+                        min_threshold DOUBLE,
+                        max_threshold DOUBLE
+);
+
+-- =========================
+-- SENSORT_READING
+-- =========================
+CREATE TABLE sensor_reading (
+                                id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                sensor_id BIGINT NOT NULL,
+                                reading_value DOUBLE NOT NULL,
+                                reading_time TIMESTAMP NOT NULL,
+                                CONSTRAINT fk_sensor_reading_sensor
+                                    FOREIGN KEY (sensor_id)
+                                        REFERENCES sensor(id)
+                                        ON DELETE CASCADE
 );

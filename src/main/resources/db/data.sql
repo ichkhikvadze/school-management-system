@@ -2,6 +2,7 @@
 INSERT INTO roles(name) VALUES ('ADMIN');
 INSERT INTO roles(name) VALUES ('TEACHER');
 INSERT INTO roles(name) VALUES ('STUDENT');
+INSERT INTO roles(name) VALUES ('MONITORING');
 
 -- USERS
 INSERT INTO users(username,password,email,first_name,last_name,role_id)
@@ -12,6 +13,9 @@ VALUES ('teacher1','teach123','teacher@school.com','John','Smith',2);
 
 INSERT INTO users(username,password,email,first_name,last_name,role_id)
 VALUES ('student1','stud123','student@school.com','Emma','Brown',3);
+
+INSERT INTO users(username,password,email,first_name,last_name,role_id)
+VALUES ('monitoring','monitoring','monitoring@school.com','Monitoring','Monitoring',4);
 
 -- SUBJECTS
 INSERT INTO subjects(name,description) VALUES ('მათემატიკა','მათემატიკა');
@@ -67,3 +71,26 @@ VALUES (1,1200.00,'2026-05-01','PENDING');
 -- PAYMENT
 INSERT INTO payments(fee_id,payment_date,amount_paid,method)
 VALUES (1,'2026-04-22',600.00,'BANK_TRANSFER');
+
+-- SENSOR
+INSERT INTO sensor
+(id, name, type, location, unit, min_threshold, max_threshold)
+VALUES
+    (1,'Temperature Sensor','TEMPERATURE','Main Building','°C',18,28),
+    (2,'Humidity Sensor','HUMIDITY','Main Building','%',30,60),
+    (3,'Air Quality Sensor','AIR_QUALITY','Main Building','AQI',0,100),
+    (4,'CO2 Sensor','CO2','Main Building','ppm',0,1000),
+    (5,'Pressure Sensor','PRESSURE','Main Building','hPa',980,1050),
+    (6,'Light Sensor','LIGHT','Main Building','lux',200,800),
+    (7,'Noise Sensor','NOISE','Main Building','dB',0,70);
+
+-- SENSOR_READING
+INSERT INTO sensor_reading(sensor_id,reading_value,reading_time)
+VALUES
+    (1,31.2,CURRENT_TIMESTAMP),
+    (2,42.0,CURRENT_TIMESTAMP),
+    (3,120.0,CURRENT_TIMESTAMP),
+    (4,1450.0,CURRENT_TIMESTAMP),
+    (5,1012.0,CURRENT_TIMESTAMP),
+    (6,350.0,CURRENT_TIMESTAMP),
+    (7,82.0,CURRENT_TIMESTAMP);

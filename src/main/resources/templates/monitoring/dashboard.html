@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Monitoring Dashboard</title>
+    </head>
+
+    <body>
+
+        <h1>School Smart Building Dashboard</h1>
+
+        <table border="1" cellpadding="10">
+
+            <thead>
+            <tr>
+                <th>Sensor</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Current Value</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="sensor : ${sensors}">
+                <td th:text="${sensor.sensorName}"></td>
+                <td th:text="${sensor.sensorType}"></td>
+                <td th:text="${sensor.location}"></td>
+                <td>
+                    <span th:text="${sensor.value}"></span>
+                    <span th:text="${sensor.unit}"></span>
+                </td>
+                <td>
+                    <span th:text="${sensor.minThreshold}"></span>
+                    <span th:text="${sensor.unit}"></span>
+                </td>
+
+                <td>
+                    <span th:text="${sensor.maxThreshold}"></span>
+                    <span th:text="${sensor.unit}"></span>
+                </td>
+                <td>
+                    <span th:if="${sensor.warning}" style="color:red;font-weight:bold;">
+                        ⚠
+                        <span th:text="${sensor.warningMessage}"></span>
+                    </span>
+                    <span th:unless="${sensor.warning}" style="color:green;font-weight:bold;">OK</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="/dashboard">Dashboard</a>
+    </body>
+</html>
