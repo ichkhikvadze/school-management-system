@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import schoolmanagementsystem.entity.SensorReading;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SensorReadingRepository extends JpaRepository<SensorReading, Long> {
@@ -20,4 +21,6 @@ public interface SensorReadingRepository extends JpaRepository<SensorReading, Lo
             WHERE sr2.sensor.id = s.id)
     """)
     List<SensorReading> findLatestReadings();
+
+    Optional<SensorReading> findBySensorId(Long sensorId);
 }
