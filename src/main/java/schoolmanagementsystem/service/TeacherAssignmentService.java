@@ -13,6 +13,7 @@ import schoolmanagementsystem.repository.*;
 import schoolmanagementsystem.request.CreateAssignmentRequest;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeacherAssignmentService {
@@ -72,6 +73,7 @@ public class TeacherAssignmentService {
         return assignmentRepository
                 .findGroupAssignments(groupId)
                 .stream()
+                .filter(assignment -> username.equals(assignment.getTeacher().getUser().getUsername()))
                 .map(AssignmentMapper::toAssignmentViewDto)
                 .toList();
     }

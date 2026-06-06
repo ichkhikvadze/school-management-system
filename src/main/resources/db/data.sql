@@ -9,13 +9,16 @@ INSERT INTO users(username,password,email,first_name,last_name,role_id)
 VALUES ('admin1','admin123','admin@school.com','System','Admin',1);
 
 INSERT INTO users(username,password,email,first_name,last_name,role_id)
-VALUES ('teacher1','teach123','teacher@school.com','John','Smith',2);
+VALUES ('mmaridze','mari','mari@gmail.com','მარიამ','მარიამიძე',2);
 
 INSERT INTO users(username,password,email,first_name,last_name,role_id)
 VALUES ('student1','stud123','student@school.com','Emma','Brown',3);
 
 INSERT INTO users(username,password,email,first_name,last_name,role_id)
 VALUES ('monitoring','monitoring','monitoring@school.com','Monitoring','Monitoring',4);
+
+INSERT INTO users(username,password,email,first_name,last_name,role_id)
+VALUES ('ttakodze','tako','tako@gmail.com','თაკო','თაკოძე',2);
 
 -- SUBJECTS
 INSERT INTO subjects(name,description) VALUES ('მათემატიკა','მათემატიკა');
@@ -32,13 +35,19 @@ INSERT INTO subjects(name,description) VALUES ('ბიოლოგია','ბ�
 INSERT INTO student_groups(name,grade_level,academic_year)
 VALUES ('Group A',10,'2025-2026');
 
+INSERT INTO student_groups(name,grade_level,academic_year)
+VALUES ('Group B',9,'2025-2026');
+
 -- STUDENT
 INSERT INTO students(user_id,birth_date,address,parent_name,parent_contact,admission_date)
 VALUES (3,'2008-05-12','City Center','Michael Brown','555123456','2025-09-01');
 
 -- TEACHER
 INSERT INTO teachers(user_id,hire_date,salary,qualification)
-VALUES (2,'2024-01-10',2500.00,'MSc Mathematics');
+VALUES (2,'2024-01-10',2500.00,'მათემატიკოსი');
+
+INSERT INTO teachers(user_id,hire_date,salary,qualification)
+VALUES (5,'2023-01-10',2000.00,'ბიოლოგი');
 
 -- RELATIONS
 INSERT INTO group_students(group_id,student_id) VALUES (1,1);
@@ -50,7 +59,10 @@ VALUES (1,1,1,'2026-04-20', '14:00:00','15:00:00','Algebra Basics','101');
 
 -- TIMETABLE
 INSERT INTO timetables(group_id,subject_id,teacher_id,day_of_week,start_time,end_time,room_number)
-VALUES (1,1,1,'MONDAY','09:00:00','10:00:00','101');
+VALUES (1,1,1,'ორშაბათი','09:00:00','10:00:00','101');
+
+INSERT INTO timetables(group_id,subject_id,teacher_id,day_of_week,start_time,end_time,room_number)
+VALUES (1,9,2,'სამშაბათი','11:00:00','12:00:00','201');
 
 -- ASSIGNMENT
 INSERT INTO assignments(teacher_id,group_id,subject_id,title,description,due_date,max_score)
