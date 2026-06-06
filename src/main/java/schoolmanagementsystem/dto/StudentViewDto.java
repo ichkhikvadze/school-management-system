@@ -1,5 +1,7 @@
 package schoolmanagementsystem.dto;
 
+import java.time.LocalDate;
+
 public class StudentViewDto {
 
     private String username;
@@ -8,6 +10,7 @@ public class StudentViewDto {
     private String groupName;
     private String parentName;
     private String parentContact;
+    private LocalDate admissionDate;
 
     public String getUsername() {
         return username;
@@ -55,5 +58,13 @@ public class StudentViewDto {
 
     public void setParentContact(String parentContact) {
         this.parentContact = parentContact;
+    }
+
+    public LocalDate getAdmissionDate() {
+        return admissionDate;
+    }
+
+    public void setAdmissionDate(LocalDate admissionDate) {
+        this.admissionDate = admissionDate;
     }
 }

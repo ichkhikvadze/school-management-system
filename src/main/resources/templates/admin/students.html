@@ -4,7 +4,7 @@
         <title>Students</title>
     </head>
     <body>
-        <h2>Students</h2>
+        <h2>სტუდენტები</h2>
 
         <a href="/dashboard">Dashboard</a>
 
@@ -25,12 +25,13 @@
         <table border="1" cellpadding="10">
             <thead>
             <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Group</th>
-                <th>Parent Name</th>
-                <th>Parent Contact</th>
+                <th>იუზერნეიმი</th>
+                <th>სახელი</th>
+                <th>გვარი</th>
+                <th>ჯგუფი</th>
+                <th>მშობლის სახელი/გვარი</th>
+                <th>მშობლის საკონტაქტო</th>
+                <th>მიღების თარიღი</th>
             </tr>
             </thead>
 
@@ -43,6 +44,7 @@
                 <td th:text="${student.groupName}"></td>
                 <td th:text="${student.parentName}"></td>
                 <td th:text="${student.parentContact}"></td>
+                <td th:text="${student.admissionDate}"></td>
             </tr>
             </tbody>
         </table>

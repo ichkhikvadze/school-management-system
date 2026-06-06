@@ -23,6 +23,7 @@ public class StudentMapper {
         studentViewDto.setGroupName(groupName);
         studentViewDto.setParentName(student.getParentName());
         studentViewDto.setParentContact(student.getParentContact());
+        studentViewDto.setAdmissionDate(student.getAdmissionDate());
 
         return studentViewDto;
     }
