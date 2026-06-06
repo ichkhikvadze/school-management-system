@@ -54,7 +54,6 @@ public class UserService {
         if (request.getRole() == RoleName.STUDENT) {
             Student student = new Student();
             student.setUser(user);
-            student.setEnrollmentNumber(request.getEnrollmentNumber());
             student.setBirthDate(request.getBirthDate());
             student.setAddress(request.getAddress());
             student.setParentName(request.getParentName());

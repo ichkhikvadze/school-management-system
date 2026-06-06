@@ -15,7 +15,6 @@ public class UserCreateRequest {
     private RoleName role;
 
     // student fields
-    private String enrollmentNumber;
     private LocalDate birthDate;
     private String address;
     private String parentName;
@@ -73,14 +72,6 @@ public class UserCreateRequest {
 
     public void setRole(RoleName role) {
         this.role = role;
-    }
-
-    public String getEnrollmentNumber() {
-        return enrollmentNumber;
-    }
-
-    public void setEnrollmentNumber(String enrollmentNumber) {
-        this.enrollmentNumber = enrollmentNumber;
     }
 
     public LocalDate getBirthDate() {

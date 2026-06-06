@@ -16,7 +16,6 @@ public class Student {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    private String enrollmentNumber;
     private LocalDate birthDate;
     private String address;
     private String parentName;
@@ -39,14 +38,6 @@ public class Student {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getEnrollmentNumber() {
-        return enrollmentNumber;
-    }
-
-    public void setEnrollmentNumber(String enrollmentNumber) {
-        this.enrollmentNumber = enrollmentNumber;
     }
 
     public LocalDate getBirthDate() {

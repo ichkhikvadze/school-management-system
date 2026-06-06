@@ -65,7 +65,6 @@ CREATE TABLE student_groups (
 CREATE TABLE students (
                           id BIGINT AUTO_INCREMENT PRIMARY KEY,
                           user_id BIGINT NOT NULL UNIQUE,
-                          enrollment_number VARCHAR(50) NOT NULL UNIQUE,
                           birth_date DATE,
                           address VARCHAR(255),
                           parent_name VARCHAR(150),

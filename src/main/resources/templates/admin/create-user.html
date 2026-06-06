@@ -23,12 +23,11 @@
         <!-- Student Fields -->
         <div id="studentFields" style="display:none;">
             <h3>Student Info</h3>
-            <input type="text" th:field="*{enrollmentNumber}" placeholder="Enrollment Number"/><br>
-            <input type="date" th:field="*{birthDate}"/><br>
-            <input type="text" th:field="*{address}" placeholder="Address"/><br>
-            <input type="text" th:field="*{parentName}" placeholder="Parent Name"/><br>
-            <input type="text" th:field="*{parentContact}" placeholder="Parent Contact"/><br>
-            <input type="date" th:field="*{admissionDate}"/><br>
+            <input type="date" th:field="*{birthDate}" placeholder="dd/MM/yyyy"/><span>დაბადების თარიღი</span><br>
+            <input type="text" th:field="*{address}" placeholder="Address"/><span>მისამართი</span><br>
+            <input type="text" th:field="*{parentName}" placeholder="Parent Name"/><span>მშობლის სახელი/გვარი</span><br>
+            <input type="text" th:field="*{parentContact}" placeholder="Parent Contact"/><span>მშობლის საკონტაქტო</span><br>
+            <input type="date" th:field="*{admissionDate}"/><span>მიღების თარიღი</span><br>
         </div>
 
         <!-- Teacher Fields -->

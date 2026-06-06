@@ -33,8 +33,8 @@ INSERT INTO student_groups(name,grade_level,academic_year)
 VALUES ('Group A',10,'2025-2026');
 
 -- STUDENT
-INSERT INTO students(user_id,enrollment_number,birth_date,address,parent_name,parent_contact,admission_date)
-VALUES (3,'STU1001','2008-05-12','City Center','Michael Brown','555123456','2025-09-01');
+INSERT INTO students(user_id,birth_date,address,parent_name,parent_contact,admission_date)
+VALUES (3,'2008-05-12','City Center','Michael Brown','555123456','2025-09-01');
 
 -- TEACHER
 INSERT INTO teachers(user_id,hire_date,salary,qualification)
