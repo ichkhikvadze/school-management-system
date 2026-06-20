@@ -195,30 +195,6 @@ CREATE TABLE grades (
 );
 
 -- =========================
--- FEES
--- =========================
-CREATE TABLE fees (
-                      id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                      student_id BIGINT NOT NULL,
-                      amount DECIMAL(10,2) NOT NULL,
-                      due_date DATE NOT NULL,
-                      status VARCHAR(50) DEFAULT 'PENDING',
-                      FOREIGN KEY (student_id) REFERENCES students(id)
-);
-
--- =========================
--- PAYMENTS
--- =========================
-CREATE TABLE payments (
-                          id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                          fee_id BIGINT NOT NULL,
-                          payment_date DATE NOT NULL,
-                          amount_paid DECIMAL(10,2) NOT NULL,
-                          method VARCHAR(50),
-                          FOREIGN KEY (fee_id) REFERENCES fees(id)
-);
-
--- =========================
 -- SENSOR
 -- =========================
 CREATE TABLE sensor (

@@ -4,13 +4,13 @@
         <title>Exams</title>
     </head>
     <body>
-        <h2>Exams</h2>
+        <h2>გამოცდები</h2>
         <table border="1" cellpadding="10">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Subject</th>
-                    <th>Exam Date</th>
+                    <th>დასახელება</th>
+                    <th>საგანი</th>
+                    <th>გამოცდის თარიღი</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +25,6 @@
         </table>
         <br>
 
-        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">Back To Group</a>
+        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">ჯგუფი</a>
     </body>
 </html>

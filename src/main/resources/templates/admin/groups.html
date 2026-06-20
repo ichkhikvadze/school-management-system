@@ -6,7 +6,7 @@
     </head>
     <body>
 
-    <h2>Group Management</h2>
+    <h2>ჯგუფების მენეჯმენტი</h2>
 
     <div th:if="${success}" style="padding:10px; background:#d4edda; color:#155724; margin-bottom:15px;">
         <span th:text="${success}"></span>
@@ -16,17 +16,17 @@
         <span th:text="${error}"></span>
     </div>
 
-    <h3>Create Group</h3>
+    <h3>ჯგუფის შექმნა</h3>
     <form th:action="@{/admin/groups/create}" method="post">
-        <input type="text" name="name" placeholder="Group Name"/>
-        <input type="number" name="gradeLevel" placeholder="Grade Level"/>
-        <input type="text" name="academicYear" placeholder="Academic Year"/>
-        <button type="submit">Create</button>
+        <input type="text" name="name" placeholder="ჯგუფის სახელი"/>
+        <input type="number" name="gradeLevel" placeholder="სასწავლო საფეხური"/>
+        <input type="text" name="academicYear" placeholder="აკადემიური წელი"/>
+        <button type="submit">შექმნა</button>
     </form>
 
     <hr>
 
-    <h3>Existing Groups</h3>
+    <h3>არსებული ჯგუფები</h3>
     <div th:each="group : ${groups}">
         <p>
             <strong th:text="${group.name}"></strong>
@@ -36,37 +36,37 @@
 
     <hr>
 
-    <h3>Create Timetable</h3>
+    <h3>ცხრილის შექმნა</h3>
     <form th:action="@{/admin/groups/timetable/create}" method="post">
-        <input type="text" name="groupName" placeholder="Group Name"/>
-        <input type="text" name="subjectName" placeholder="Subject Name"/>
-        <input type="text" name="teacherUsername" placeholder="Teacher Username"/>
-        <input type="text" name="dayOfWeek" placeholder="MONDAY"/>
+        <input type="text" name="groupName" placeholder="ჯგუფის სახელი"/>
+        <input type="text" name="subjectName" placeholder="საგანი"/>
+        <input type="text" name="teacherUsername" placeholder="მასწავლებლის იუზერნეიმი"/>
+        <input type="text" name="dayOfWeek" placeholder="დღე"/>
         <input type="time" name="startTime"/>
         <input type="time" name="endTime"/>
-        <input type="text" name="roomNumber" placeholder="Room"/>
-        <button type="submit">Save Timetable</button>
+        <input type="text" name="roomNumber" placeholder="ოთახის ნომერი"/>
+        <button type="submit">შექმნა</button>
     </form>
 
     <hr>
 
-    <h3>Create Exam</h3>
+    <h3>გამოცდის დანიშვნა</h3>
     <form th:action="@{/admin/groups/exam/create}" method="post">
-        <input type="text" name="groupName" placeholder="Group Name"/>
-        <input type="text" name="subjectName" placeholder="Subject Name"/>
-        <input type="text" name="title" placeholder="Title"/>
+        <input type="text" name="groupName" placeholder="ჯგუფის სახელი"/>
+        <input type="text" name="subjectName" placeholder="საგანი"/>
+        <input type="text" name="title" placeholder="გამოცდის დასახელება"/>
         <input type="date" name="examDate"/>
-        <input type="number" name="maxScore" placeholder="Max Score"/>
-        <button type="submit">Create Exam</button>
+        <input type="number" name="maxScore" placeholder="მაქსიმალური ქულა"/>
+        <button type="submit">შექმნა</button>
     </form>
 
     <hr>
 
-    <h3>Add Student To Group</h3>
+    <h3>სტუდენტის ჯგუფში ჩამატება</h3>
     <form th:action="@{/admin/groups/students/add}" method="post">
-        <input type="text" name="studentUsername" placeholder="Student Username" required><br>
-        <input type="text" name="groupName" placeholder="Group Name" required><br>
-        <button type="submit">Add Student</button>
+        <input type="text" name="studentUsername" placeholder="სტუდენტის იუზერნეიმი" required><br>
+        <input type="text" name="groupName" placeholder="ჯგუფის სახელი" required><br>
+        <button type="submit">დამატება</button>
     </form>
 
 <!--    <hr>-->
@@ -96,6 +96,6 @@
 <!--        <button type="submit">Create Class</button>-->
 <!--    </form>-->
 
-        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard">პროფილი</a>
     </body>
 </html>

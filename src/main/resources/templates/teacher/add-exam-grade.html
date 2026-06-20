@@ -4,7 +4,7 @@
         <title>Add Exam Grade</title>
     </head>
     <body>
-        <h2>Add Exam Grade</h2>
+        <h2>გამოცდის შეფასება</h2>
 
         <div th:if="${success}" style="color:green;">
             <span th:text="${success}"></span>
@@ -17,9 +17,9 @@
         <form th:action="@{/teacher/exams/{id}/grades/add(id=${examId})}" method="post" th:object="${request}">
 
             <!-- STUDENT DROPDOWN -->
-            <label>Select Student</label>
+            <label>სტუდენტის არჩევა</label>
             <select th:field="*{studentId}">
-                <option value="">-- Select Student --</option>
+                <option value="">-- სტუდენტის არჩევა --</option>
                 <option th:each="student : ${students}"
                         th:value="${student.id}"
                         th:text="${student.displayName}">
@@ -35,9 +35,9 @@
                    min="0"
                    max="100"
                    th:field="*{score}"
-                   placeholder="Score">
+                   placeholder="ქულა">
             <br><br>
-            <button type="submit">Add Grade</button>
+            <button type="submit">შეფასება</button>
         </form>
     </body>
 </html>

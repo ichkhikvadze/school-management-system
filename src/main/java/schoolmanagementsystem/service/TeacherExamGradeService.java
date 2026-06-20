@@ -48,7 +48,7 @@ public class TeacherExamGradeService {
         boolean alreadyExists = gradeRepository.existsByExamIdAndStudentId(examId, request.getStudentId());
 
         if (alreadyExists) {
-            throw new RuntimeException("Grade already exists for this student");
+            throw new RuntimeException("სტუდენტი უკვე შეფასებულია");
         }
 
         Exam exam = examRepository.findDetailedById(examId)

@@ -52,7 +52,7 @@ public class TeacherAssignmentGradeService {
         }
         boolean alreadyExists = gradeRepository.existsByAssignmentIdAndStudentId(assignmentId, request.getStudentId());
         if (alreadyExists) {
-            throw new RuntimeException("Grade already exists for this student");
+            throw new RuntimeException("სტუდენტი უკვე შეფასებულია");
         }
 
         Assignment assignment = assignmentRepository.findDetailedById(assignmentId)

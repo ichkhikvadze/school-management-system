@@ -76,14 +76,6 @@ VALUES (1,1,'Shualeduri 1','2026-05-10',100);
 INSERT INTO grades(student_id,assignment_id,grade_value,remarks)
 VALUES (1,1,92,'Excellent');
 
--- FEE
-INSERT INTO fees(student_id,amount,due_date,status)
-VALUES (1,1200.00,'2026-05-01','PENDING');
-
--- PAYMENT
-INSERT INTO payments(fee_id,payment_date,amount_paid,method)
-VALUES (1,'2026-04-22',600.00,'BANK_TRANSFER');
-
 -- SENSOR
 INSERT INTO sensor
 (id, name, type, location, unit, min_threshold, max_threshold)

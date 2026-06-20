@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Create Assignment</title>
+        <title>დავალების დამატება</title>
     </head>
     <body>
         <h2>Create Assignment</h2>
@@ -17,25 +17,25 @@
               method="post"
               th:object="${assignment}">
 
-            <input type="text" th:field="*{subjectName}" placeholder="Subject Name">
+            <input type="text" th:field="*{subjectName}" placeholder="საგანი"><span>საგანი</span>
             <br><br>
 
-            <input type="text" th:field="*{title}" placeholder="Assignment Title">
+            <input type="text" th:field="*{title}" placeholder="დავალების დასახელება"><span>დავალების დასახელება</span>
             <br><br>
 
-            <textarea th:field="*{description}" placeholder="Description">
-            </textarea>
+            <textarea th:field="*{description}" placeholder="აღწერა">
+            </textarea><span>აღწერა</span>
             <br><br>
 
-            <input type="date" th:field="*{dueDate}">
+            <input type="date" th:field="*{dueDate}"><span>ვადა</span>
             <br><br>
 
-            <input type="number" th:field="*{maxScore}" placeholder="Max Score"/>
+            <input type="number" th:field="*{maxScore}" placeholder="მაქსიმალური ქულა"/><span>მაქსიმალური ქულა</span>
             <br><br>
 
-            <button type="submit">Create Assignment</button>
+            <button type="submit">დავალების დამატება</button>
         </form>
 
-        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">Back To Group</a>
+        <a th:href="@{/teacher/groups/{id}/students(id=${groupId})}">ჯგუფი</a>
     </body>
 </html>

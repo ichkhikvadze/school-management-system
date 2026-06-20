@@ -42,7 +42,7 @@ public class TeacherAssignmentGradeController {
                            RedirectAttributes redirectAttributes) {
         try {
             teacherAssignmentGradeService.addAssignmentGrade(authentication.getName(), assignmentId, request);
-            redirectAttributes.addFlashAttribute("success", "Grade added successfully");
+            redirectAttributes.addFlashAttribute("success", "სტუდენტი წარმატებით შეფასდა");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }

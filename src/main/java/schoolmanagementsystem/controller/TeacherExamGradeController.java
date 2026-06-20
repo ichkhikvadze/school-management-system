@@ -41,7 +41,7 @@ public class TeacherExamGradeController {
             RedirectAttributes redirectAttributes) {
         try {
             teacherExamGradeService.addExamGrade(examId, request);
-            redirectAttributes.addFlashAttribute("success", "Exam grade added successfully");
+            redirectAttributes.addFlashAttribute("success", "სტუდენტი წარმატებით შეფასდა");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }

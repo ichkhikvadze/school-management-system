@@ -4,27 +4,27 @@
         <title>Group Students</title>
     </head>
     <body>
-        <h2>Students In Group</h2>
+        <h2>ჯგუფის სტუდენტები</h2>
 
         <a th:href="@{/teacher/groups/{id}/assignments/create(id=${groupId})}">
-            <button type="button">Create Assignment</button>
+            <button type="button">დავალების დამატება</button>
         </a>
 
         <a th:href="@{/teacher/groups/{id}/assignments(id=${groupId})}">
-            <button type="button">View Assignments</button>
+            <button type="button">დავალებები</button>
         </a>
 
         <a th:href="@{/teacher/groups/{id}/exams(id=${groupId})}">
-            <button type="button">View Exams</button>
+            <button type="button">გამოცდები</button>
         </a>
 
         <br><br>
         <table border="1" cellpadding="10">
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>იუზერნეიმი</th>
+                    <th>სახელი</th>
+                    <th>გვარი</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +42,6 @@
 
         <br>
 
-        <a th:href="@{/teacher/groups}">Back To Groups</a>
+        <a th:href="@{/teacher/groups}">ჯგუფები</a>
     </body>
 </html>

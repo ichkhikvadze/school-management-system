@@ -7,33 +7,30 @@
 </head>
     <body>
 
-        <h2>Dashboard</h2>
+        <h2>პროფილი</h2>
 
         <p>Welcome: <span sec:authentication="name"></span></p>
 
         <div sec:authorize="hasRole('ADMIN')">
-            <a href="/admin/users/new">Create User</a>
-            <a th:href="@{/admin/groups}">Manage Groups</a>
-            <a th:href="@{/admin/students}">View Students</a>
-            <a th:href="@{/admin/teachers}">Manage Teachers</a>
+            <a href="/admin/users/new">მომხმარებლის რეგისტრაცია</a>
+            <a th:href="@{/admin/groups}">ჯგუფების მენეჯმენტი</a>
+            <a th:href="@{/admin/students}">სტუდენტები</a>
+            <a th:href="@{/admin/teachers}">მასწავლებლები</a>
         </div>
 
         <div sec:authorize="hasRole('TEACHER')">
-            <p>Teacher Panel</p>
-            <a th:href="@{/teacher/timetable}">My Timetable</a>
-            <a th:href="@{/teacher/groups}">My Groups</a>
+            <a th:href="@{/teacher/timetable}">ჩემი ცხრილი</a>
+            <a th:href="@{/teacher/groups}">ჩემი ჯგუფები</a>
         </div>
 
         <div sec:authorize="hasRole('STUDENT')">
-            <p>Student Panel</p>
-            <a th:href="@{/student/assignments}">My Assignments</a>
-            <a th:href="@{/student/timetable}">My Timetable</a>
-            <a th:href="@{/student/exams}">My Exams</a>
+            <a th:href="@{/student/assignments}">ჩემი დავალებები</a>
+            <a th:href="@{/student/timetable}">ჩემი ცხრილი</a>
+            <a th:href="@{/student/exams}">ჩემი გამოცდები</a>
         </div>
 
         <div sec:authorize="hasRole('MONITORING')">
-            <p>Monitoring Panel</p>
-            <a th:href="@{/monitoring/dashboard}">Monitor Building</a>
+            <a th:href="@{/monitoring/dashboard}">შენობის მონიტორინგი</a>
         </div>
 
         <form th:action="@{/logout}" method="post">
